@@ -214,7 +214,9 @@
 (defconst elixir-mode-font-lock-defaults
   (list
     '("#.*$" . font-lock-comment-face)                                                                                                  ; comments
-    `(,(concat "^\\s *\\<" (regexp-opt elixir-mode-define-names t) "\\>\\s +\\([^( \t\n]+\\)") 2 font-lock-function-name-face)          ; methods
+    '("%.*$" . font-lock-comment-face)                                                                                                  ; comments
+    '("^\\s *defp?\\s +\\([^( \t\n]+\\)" 1 font-lock-function-name-face)                                                                  ; methods
+    '("^\\s *def\\(module\\|record\\)\\s +\\([^( \t\n,]+\\)" 2 font-lock-type-face)                                                            ; module definition
     `(,(concat "\\<" (regexp-opt elixir-mode-keyword-names t) "\\>") . font-lock-keyword-face)                                          ; keywords
     `(,(concat "\\<" (regexp-opt elixir-mode-builtin-names t) "\\>") . font-lock-builtin-face)                                          ; builtins
     `(,(concat "\\<" (regexp-opt elixir-mode-module-names t) "\\>") . font-lock-type-face)                                              ; core modules
@@ -223,6 +225,8 @@
     '("-[Rr].*[ \n\t]" . font-lock-constant-face)                                                                                       ; regexes
     '("\\<\\(true\\|false\\|nil\\)\\>" . font-lock-reference-face)                                                                           ; atoms, boolean
     '("\\w*:\s" . font-lock-reference-face)
+    '("-[Rr].*[ \n\t]" . font-lock-constant-face)                                                                                       ; regexes
+    '("\\<\\(true\\|false\\|nil\\)\\>" . font-lock-reference-face)                                                                           ; atoms, boolean
     '(":\\w*" . font-lock-reference-face))                                                                                                   ; atoms, generic
 "Highlighting for Elixir mode.")
 
