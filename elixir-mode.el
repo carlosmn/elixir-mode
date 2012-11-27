@@ -101,6 +101,17 @@
   "do"
   "after"
   "for"
+  "def"
+  "defdelegate"
+  "defimpl"
+  "defmacro"
+  "defmacrop"
+  "defmodule"
+  "defoverridable"
+  "defp"
+  "defprotocol"
+  "defrecord"
+  "destructure"
   "alias"
   "refer"
   "require"
@@ -121,8 +132,7 @@
   "rescue"
   "fn"
   "receive"
-  "end"
-  'elixir-mode-define-names)
+  "end")
 "Elixir mode keywords.")
 (defvar elixir-mode-module-names '(
   "Behavior"
